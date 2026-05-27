@@ -1,0 +1,22 @@
+#!/bin/sh
+file=$1
+if [ -d "$file" ];
+then
+	echo "$file 은 디렉토리입니다."
+elif [ -L "$file" ]; then
+	echo "$file 은 심볼릭링크입니다."
+elif [ -f "$file" ]; then
+	echo "$file 은 보통파일입니다."
+elif [ -S "$file" ]; then
+	echo "$file 은 소켓입니다."
+elif [ -p "$file" ]; then
+	echo "$file 은 파이프입니다."
+elif [ -b "$file" ]; then
+	echo "$file 은 블록장치입니다."
+elif [ -c "$file" ]; then
+	echo "$file 은 문자장치입니다."
+elif [ ! -e "$file" ]; then
+	echo "$file은 존재하지 않습니다."
+else
+	echo "I don't know"
+fi

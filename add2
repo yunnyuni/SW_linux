@@ -1,0 +1,7 @@
+#!/bin/bash
+add=0
+for n in $*
+do
+        add=$((add + n))
+done
+echo $add
